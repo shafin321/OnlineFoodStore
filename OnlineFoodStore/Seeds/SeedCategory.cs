@@ -51,5 +51,10 @@ namespace OnlineFoodStore.Seeds
         {
             return categoryList;
         }
+
+        public Category GetById(int id)
+        {
+            return categoryList.FirstOrDefault(c => c.Id == id);
+        }
     }
 }

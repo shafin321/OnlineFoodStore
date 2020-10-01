@@ -7,5 +7,6 @@ namespace OnlineFoodStore.ViewModel.CategoryModel
 {
     public class CategoryIndexModel
     {
+        public IEnumerable<CategoryListingModel> CategoryList { get; set; }
     }
 }
