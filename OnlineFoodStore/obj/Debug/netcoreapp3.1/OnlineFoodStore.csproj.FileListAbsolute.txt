@@ -9,7 +9,6 @@ C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\bin\Debug\netcorea
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\bin\Debug\netcoreapp3.1\OnlineFoodStore.pdb
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\bin\Debug\netcoreapp3.1\OnlineFoodStore.Views.dll
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\bin\Debug\netcoreapp3.1\OnlineFoodStore.Views.pdb
-C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.csprojAssemblyReference.cache
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.AssemblyInfoInputs.cache
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.AssemblyInfo.cs
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.RazorAssemblyInfo.cache
@@ -148,3 +147,4 @@ C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\bin\Debug\netcorea
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.csproj.CoreCompileInputs.cache
 C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Shujaul\source\repos\OnlineFoodStore\OnlineFoodStore\obj\Debug\netcoreapp3.1\OnlineFoodStore.csprojAssemblyReference.cache

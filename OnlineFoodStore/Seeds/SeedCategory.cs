@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace OnlineFoodStore.Seeds
 {
-    //InMemory Database
+//InMemory Database
 
-    
+
     public class SeedCategory : ICategory
+{
+    private IEnumerable<Category> categoryList;
+
+    public SeedCategory()
     {
-        private IEnumerable<Category> categoryList;
 
-        public SeedCategory()
-        {
-
-            categoryList = new List<Category>
+        categoryList = new List<Category>
             {
                new Category
                 {
@@ -45,16 +45,16 @@ namespace OnlineFoodStore.Seeds
                     Description="Milk, yoghurt cheese and/or alternatives, mostly reduced fat"
                 }
             };
-        }
-
-        public IEnumerable<Category> GetAll()
-        {
-            return categoryList;
-        }
-
-        public Category GetById(int id)
-        {
-            return categoryList.FirstOrDefault(c => c.Id == id);
-        }
     }
+
+    public IEnumerable<Category> GetAll()
+    {
+        return categoryList;
+    }
+
+    public Category GetById(int id)
+    {
+        return categoryList.FirstOrDefault(c => c.Id == id);
+    }
+}
 }

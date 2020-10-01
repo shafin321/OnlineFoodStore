@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineFoodStore.Data;
 using OnlineFoodStore.Seeds;
+using OnlineFoodStore.ServiceRepository;
 using OnlineFoodStore.Services;
 
 namespace OnlineFoodStore
@@ -31,8 +32,8 @@ namespace OnlineFoodStore
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddTransient<ICategory, SeedCategory>();
-            services.AddTransient<IFood, SeedFood>();
+            services.AddTransient<ICategory, CategoryService>();
+            services.AddTransient<IFood, FoodService>();
             services.AddControllersWithViews();
         }
 
@@ -47,7 +48,7 @@ namespace OnlineFoodStore
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+           //     app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
