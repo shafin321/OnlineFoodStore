@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineFoodStore.Models;
 using OnlineFoodStore.Services;
+using OnlineFoodStore.ViewModel;
+using OnlineFoodStore.ViewModel.FoodModel;
 
 namespace OnlineFoodStore.Controllers
 {
@@ -22,14 +24,16 @@ namespace OnlineFoodStore.Controllers
         // GET: FoodController
         public ActionResult Index()
         {
-            IEnumerable<Food> food = _food.GetAll();
+            var food = _food.GetAll();         
+        
             return View(food);
         }
 
         // GET: FoodController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = _food.GetById(id);
+            return View(model);
         }
 
         // GET: FoodController/Create

@@ -6,32 +6,60 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineFoodStore.Models;
+using OnlineFoodStore.Services;
+using OnlineFoodStore.ViewModel;
+using OnlineFoodStore.ViewModel.CategoryModel;
+using OnlineFoodStore.ViewModel.FoodModel;
 
 namespace OnlineFoodStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IFood _foodService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IFood foodService)
         {
-            _logger = logger;
+            _foodService = foodService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            
+            var model = BuildIndexModel();
+            return View(model);
         }
 
-        public IActionResult Privacy()
+        private HomeIndexModel BuildIndexModel()
         {
-            return View();
+     
+            var preferedFoods = _foodService.GetPreferred(2);
+            var foods = preferedFoods.Select(food => new FoodListingModel
+            {
+                Id = food.Id,
+                Name = food.Name,
+                //Category = BuildCategoryListing(food.Category),
+                ImageUrl = food.ImageUrl,
+                InStock = food.InStock,
+                Price = food.Price,
+                ShortDescription = food.ShortDescription
+            });
+
+            return new HomeIndexModel
+            {
+                PreferedFoods = foods
+            };
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            private CategoryListingModel BuildCategoryListing(Category category)
+            {
+                return new CategoryListingModel
+                {
+                    Id = category.Id,
+                    Description = category.Description,
+                    Name = category.Name,
+                    ImageUrl = category.ImageUrl
+                };
+            }
         }
     }
-}
+    

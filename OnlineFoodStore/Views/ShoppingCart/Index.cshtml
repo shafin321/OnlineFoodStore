@@ -1,0 +1,44 @@
+﻿@model OnlineFoodStore.ViewModel.ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class=" table table-bordered table-striped">
+
+    <tr>
+        <th>
+            Food NAME
+        </th>
+
+        <th>
+            Amount
+        </th>
+
+        <th>
+            Price
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+    {
+        <tr>
+            <td>
+                @item.Food.Name
+            </td>
+
+            <td>@item.Amount</td>
+
+            <td>@item.Food.Price</td>
+        </tr>
+    }
+
+
+
+</table>
+
+<tr>
+    <td>
+        Total :   @Model.ShoppingCartTotal
+    </td>
+</tr>
+

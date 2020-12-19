@@ -1,0 +1,22 @@
+﻿
+@model OnlineFoodStore.ViewModel.CategoryModel.CategoryIndexModel
+
+<h1>Food categories</h1>
+
+    <table class="table table-hover" id="categoryIndexTable">
+        <tbody>
+            @foreach (var category in Model.CategoryList)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Category" asp-action="Topic" asp-route-id="@category.Id">
+                            @category.Name
+                        </a>
+                    </td>
+                    <td>
+                        @category.Description
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

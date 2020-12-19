@@ -1,21 +1,27 @@
-﻿
-@model IEnumerable<OnlineFoodStore.Models.Food>
+﻿@model IEnumerable<OnlineFoodStore.Models.Food>
 
 
-@{
-    ViewData["Title"] = "Index";
-}
+   
 
-<h1>Index</h1>
-<div>
-    <h2>All drinks</h2>
+<table class="table">
+
     @foreach (var food in Model)
     {
-        <div>
-            <br />
-            <h4>Drink name: @food.Name</h4>
-            <h3>Category name:  @food.Category.Name</h3>
-            <p>Price: @food.Price.ToString("c")</p>
-        </div>
+    <tr>
+       
+        <td>
+            @food.Name
+        </td>
+        <td>
+            @food.Price
+        </td>
+
+        
+
+        <td>
+            <a asp-action="Details" asp-controller="Food" asp-route-id="@food.Id" class="btn btn-dark">Details</a>
+        </td>
+    </tr>
     }
-</div>
+
+</table>

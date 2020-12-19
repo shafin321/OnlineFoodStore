@@ -1,0 +1,25 @@
+﻿@model OnlineFoodStore.Models.Food
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div>
+    <p>
+        Name: @Model.Name
+    </p>
+    <p>Category: @Model.Category.Name</p>
+    <p>
+        Price :@Model.Price
+    </p>
+</div>
+
+    <div>
+        <a asp-action="AddToCart" asp-controller="ShoppingCart"  asp-route-id="@Model.Id" class="btn btn-dark">Add TO Cart</a>
+   
+</div>
+
+

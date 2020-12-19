@@ -23,7 +23,7 @@ namespace OnlineFoodStore.ServiceRepository
 
         public Food GetById(int id)
         {
-          return  _context.Foods.FirstOrDefault(f => f.Id == id);
+          return  _context.Foods.Include(food => food.Category).FirstOrDefault(f => f.Id == id);
         }
 
         public IEnumerable<Food> GetFoodsByCategoryId(int categoryId)
@@ -34,6 +34,11 @@ namespace OnlineFoodStore.ServiceRepository
         public IEnumerable<Food> GetPreferred()
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Food> GetPreferred(int count)
+        {
+            return _context.Foods.Where(food => food.IsPreferedFood).Take(count);
         }
     }
 }

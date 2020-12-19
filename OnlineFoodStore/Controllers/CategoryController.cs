@@ -13,41 +13,35 @@ namespace OnlineFoodStore.Controllers
 {
     public class CategoryController : Controller
     {
-        private ICategory _categoryService;
-        private IFood _foodService;
-        public CategoryController(ICategory category, IFood food)
+        private readonly ICategory _categoryService;
+        private readonly IFood _foodService;
+
+        public CategoryController(ICategory categoryService, IFood foodService)
         {
-            _categoryService = category;
-            _foodService = food;
+            _categoryService = categoryService;
+            _foodService = foodService;
         }
-        // GET: CategoryController
+
         public IActionResult Index()
         {
-            IEnumerable<CategoryListingModel> categories = _categoryService.GetAll().
-                 Select(category => new CategoryListingModel
-                 {
-                     Name = category.Name,
-                     Description = category.Description,
-                     Id = category.Id,
-                     ImageUrl = category.ImageUrl
-                 });
-
+            var categories = _categoryService.GetAll().
+                Select(category => new CategoryListingModel
+                {
+                    Name = category.Name,
+                    Description = category.Description,
+                    Id = category.Id,
+                    ImageUrl = category.ImageUrl
+                });
 
             var model = new CategoryIndexModel
             {
                 CategoryList = categories
             };
 
-            //var model = new CategoryIndexModel
-            //{
-            //    CategoryList = categories
-            //};
-
             return View(model);
         }
 
-        // GET: CategoryController/Details/5
-        public ActionResult Topic(int id)
+        public IActionResult Topic(int id)
         {
             var category = _categoryService.GetById(id);
             var foods = _foodService.GetFoodsByCategoryId(id);
@@ -60,15 +54,12 @@ namespace OnlineFoodStore.Controllers
                 Price = food.Price,
                 ShortDescription = food.ShortDescription,
                 Category = BuildCategoryListing(food)
-
-
-            }) ;
+            });
 
             var model = new CategoryTopicModel
             {
                 Category = BuildCategoryListing(category),
                 Foods = foodListings
-
             };
 
             return View(model);
@@ -84,17 +75,18 @@ namespace OnlineFoodStore.Controllers
         {
             return new CategoryListingModel
             {
-                
-              Name=category.Name,
-              Description=category.Description,
-              Id=category.Id,
-              ImageUrl = category.ImageUrl
-
+                Name = category.Name,
+                Description = category.Description,
+                Id = category.Id,
+                ImageUrl = category.ImageUrl
             };
         }
+    
 
-        // GET: CategoryController/Create
-        public ActionResult Create()
+
+
+// GET: CategoryController/Create
+public ActionResult Create()
         {
             return View();
         }

@@ -10,6 +10,7 @@ namespace OnlineFoodStore.Services
     {
         IEnumerable<Food> GetAll();
         IEnumerable<Food> GetFoodsByCategoryId(int categoryId);
+        IEnumerable<Food> GetPreferred(int count);
         IEnumerable<Food> GetPreferred();
         Food GetById(int id);
     }
